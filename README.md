@@ -1,8 +1,8 @@
-# RAG-based question answering chatbot using Deep Lake, LangChain, and GPT-3.5
+# RAG-based Question Answering Chatbot using Deep Lake, LangChain, and GPT-3.5
 
-This project implements a **Retrieval-Augmented Generation (RAG)** chatbot that answers user questions by retrieving the most relevant information from a document and generating natural language responses using **GPT-3.5 Turbo**.
+This project implements a **Retrieval-Augmented Generation (RAG)** chatbot that enables interactive communication with user-provided text files using **LLM** and **retrieval-based techniques**. The chatbot answers user questions by retrieving the most relevant information from a document and generating natural language responses using **GPT-3.5 Turbo**.
 
-The system leverages **Deep Lake** as a vector database to store document embeddings, **LangChain** for seamless LLM integration, and **OpenAI’s GPT-3.5 Turbo** for advanced language understanding. It follows a robust pipeline to convert documents into vector embeddings and find the most relevant chunks through **cosine similarity** to provide precise and context-aware answers to user queries.
+The system is highly customizable, allowing the LLM to be tailored based on the user’s text files. This approach enhances the chatbot’s ability to generate precise, context-aware responses by grounding the LLM in user-provided content. The pipeline includes document chunking, vectorizing with embeddings, storing embeddings in a vector database, and querying to generate accurate responses.
 
 ---
 
@@ -16,11 +16,12 @@ The system leverages **Deep Lake** as a vector database to store document embedd
 
 ## Features
 
-- **Document Handling:** Download and split large text files into smaller chunks.
-- **Vector Embeddings:** Use OpenAI embeddings to transform text chunks.
-- **Deep Lake Database Integration:** Store and manage vector embeddings.
-- **GPT-3.5 Answer Generation:** Retrieve relevant text chunks and generate context-aware answers.
-- **Cosine Similarity Matching:** Quickly find the most relevant content for user queries.
+- **Document Handling:** Download and split large text files into smaller chunks for easier processing.
+- **Vector Embeddings:** Use **OpenAI embeddings** to convert text chunks into high-dimensional vectors.
+- **Deep Lake Database Integration:** Store, retrieve, and manage vector embeddings in a **Deep Lake** vector database.
+- **GPT-3.5 Answer Generation:** Retrieve the most relevant text chunk and generate context-aware responses with **GPT-3.5**.
+- **Cosine Similarity Matching:** Efficiently find the most relevant text chunk to answer the user’s query.
+- **Customizable LLM:** Enables user-provided documents to enhance the LLM’s contextual accuracy.
 
 ---
 
@@ -28,7 +29,7 @@ The system leverages **Deep Lake** as a vector database to store document embedd
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/amirhosseinazami1373/RAG--based-Question-answering-chatbot.git
+    git clone https://github.com/amirhosseinazami1373/RAG--based-Question-answering-chatbot-.git
     cd your-repo
     ```
 
@@ -37,31 +38,45 @@ The system leverages **Deep Lake** as a vector database to store document embedd
     pip install -r requirements.txt
     ```
 
-3. **Set up API keys:**
-   - OpenAI API key: Get your key from [OpenAI](https://beta.openai.com/signup/).
-   - Deep Lake API key: Create a Deep Lake account at [Activeloop](https://activeloop.ai/).
+3. ## Add Your API Keys as Environment Variables
 
-4. **Add your API keys as environment variables:**
-    ```bash
-    export OPENAI_API_KEY="your-openai-api-key"
-    export DEEPLAKE_API_KEY="your-deeplake-api-key"
-    ```
+To access **OpenAI** and **Deep Lake APIs**, set your API keys as environment variables. This ensures secure access and prevents hard-coding sensitive information in the code.
 
+### For Mac/Linux:
+Open your terminal and run:
+```bash
+export OPENAI_API_KEY="your-openai-api-key"
+export DEEPLAKE_API_KEY="your-deeplake-api-key"
+ ```
+### For Windows (Command Prompt):
+
+```bash
+set OPENAI_API_KEY="your-openai-api-key"
+set DEEPLAKE_API_KEY="your-deeplake-api-key"
+```
+### For Windows (PowerShell):
+
+```bash
+$env:OPENAI_API_KEY="your-openai-api-key"
+$env:DEEPLAKE_API_KEY="your-deeplake-api-key"
+```
 ---
 
 ## Usage
+1.**Prepare the Vector Database:**
+Open the **Vectordatabse.ipynb** file and run the code. This will: Download the text data from the specified link (replaceable with any other text URL). Split the text into chunks. Generate vector embeddings using OpenAI’s model. Store the embeddings in a Deep Lake database for fast querying.
 
-1. **Run the Streamlit app:**
+2. **Run the Streamlit app:**
     ```bash
     streamlit run RAG_1.py
     ```
 
-2. **Steps in the application:**
-   - **Document Processing:** The app downloads the specified text document and splits it into smaller chunks.
+2. **Application Workflow:**
+   - **Document Processing:** The application downloads the specified text document and splits it into smaller chunks.
    - **Embeddings Generation:** Each chunk is converted into vector embeddings using OpenAI's `text-embedding-ada-002` model.
-   - **Storing Embeddings:** The embeddings are uploaded to a **Deep Lake** vector database.
-   - **Querying:** Users enter their queries in the app, which converts the query to a vector and uses **cosine similarity** to find the most relevant chunk.
-   - **Answer Generation:** The retrieved chunk is fed to **GPT-3.5** to generate the final answer.
+   - **Storing Embeddings:** The vector embeddings are uploaded to a **Deep Lake** database.
+   - **Querying:** Users input their queries, which are converted into vectors. **Cosine similarity** is used to match the query with the most relevant text chunk.
+   - **Answer Generation:** The matched chunk is fed into **GPT-3.5** to generate a response tailored to the query.
 
 ---
 
@@ -70,3 +85,7 @@ The system leverages **Deep Lake** as a vector database to store document embedd
 ```text
 **Query:** "What clues did Sherlock Holmes find at the crime scene?"
 **Response:** "Holmes discovered footprints that indicated a person with a peculiar gait..."
+
+
+
+
