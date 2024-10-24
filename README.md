@@ -81,26 +81,34 @@ $env:DEEPLAKE_API_KEY="your-deeplake-api-key"
    - **LLM Call:** Uses GPT-3.5 Turbo to generate a natural language response based on the relevant chunk.
    
 
-4. **Run the Streamlit app:**
+3. **Run the Streamlit App for a User-Friendly Interface:**
+After creating the vector database, users can switch to a more graphical interface using Streamlit. This interface makes it easier to query the chatbot and view responses interactively. To launch the Streamlit app, run the following command in the terminal:
     ```bash
     streamlit run RAG_1.py
     ```
-
-2. **Application Workflow:**
+---
+## Application Workflow: 
    - **Document Processing:** The application downloads the specified text document and splits it into smaller chunks.
    - **Embeddings Generation:** Each chunk is converted into vector embeddings using OpenAI's `text-embedding-ada-002` model.
    - **Storing Embeddings:** The vector embeddings are uploaded to a **Deep Lake** database.
    - **Querying:** Users input their queries, which are converted into vectors. **Cosine similarity** is used to match the query with the most relevant text chunk.
    - **Answer Generation:** The matched chunk is fed into **GPT-3.5** to generate a response tailored to the query.
+Below is the flowchart showing the workflow of the RAG-based chatbot system:
 
+![Flowchart](Flowchart.png) 
 ---
 
-## Example Query
+## Example Query:
+
+**Query:**
 
 ```text
-**Query:** "What clues did Sherlock Holmes find at the crime scene?"
-**Response:** "Holmes discovered footprints that indicated a person with a peculiar gait..."
-
+ "What was Sherlock doing in this story??"
+```
+**Response:** 
+```text
+"Sherlock Holmes was examining the pathway and the surrounding area for clues and evidence related to the mystery at hand. He was also observing the behavior and actions of the police and other individuals involved in the case."
+```
 
 
 
