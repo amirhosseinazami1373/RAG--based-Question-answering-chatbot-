@@ -62,9 +62,11 @@ $env:DEEPLAKE_API_KEY="your-deeplake-api-key"
 ```
 ---
 
-## Usage
-1.**Prepare the Vector Database:**
-Open the **Vectordatabse.ipynb** file and run the code. This will: Download the text data from the specified link (replaceable with any other text URL). Split the text into chunks. Generate vector embeddings using OpenAI’s model. Store the embeddings in a Deep Lake database for fast querying.
+## Usage:
+
+1. **Prepare the Vector Database:**
+   
+    Open the **Vectordatabse.ipynb** file and run the code. This will download the text data from the specified link (replaceable with any other text URL). Split the text into chunks. Generate vector embeddings using OpenAI’s model. Store     the embeddings in a Deep Lake database for fast querying.
 
 2. **Run the Streamlit app:**
     ```bash
