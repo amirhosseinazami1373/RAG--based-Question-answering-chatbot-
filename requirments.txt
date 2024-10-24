@@ -1,0 +1,7 @@
+langchain==0.3.3
+deeplake==3.9.26
+openai==1.47.0
+tiktoken==0.7.0
+streamlit==1.39.0
+scikit-learn==1.5.2
+numpy==1.26.4
