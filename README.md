@@ -65,10 +65,23 @@ $env:DEEPLAKE_API_KEY="your-deeplake-api-key"
 ## Usage:
 
 1. **Prepare the Vector Database:**
-   
-    Open the **Vectordatabse.ipynb** file and run the code. This will download the text data from the specified link (replaceable with any other text URL). Split the text into chunks. Generate vector embeddings using OpenAI’s model. Store     the embeddings in a Deep Lake database for fast querying.
+   Open the `Vectordatabse.ipynb` file and run the code. This will:
+   - Download the text data from the specified link (replaceable with any other text URL).
+   - Split the text into smaller chunks.
+   - Generate vector embeddings using OpenAI’s `text-embedding-ada-002` model.
+   - Store the embeddings in a **Deep Lake** vector database for fast querying.
 
-2. **Run the Streamlit app:**
+2. **Run the Similarity and LLM Call:**
+   Open and run the `similarity_LLM.ipynb` file, which performs the following steps:
+   - **Query Input:** Captures a user query through an input prompt.
+   - **Embed the Query:** Converts the query into a vector using OpenAI embeddings.
+   - **Cosine Similarity Matching:** Compares the query vector with the stored embeddings in the Deep Lake database to find the most relevant chunk.
+   - **Retrieve Relevant Content:** Extracts the text corresponding to the highest similarity score.
+   - **Prompt Formatting:** Creates a prompt with the relevant chunk to guide the GPT-3.5 model.
+   - **LLM Call:** Uses GPT-3.5 Turbo to generate a natural language response based on the relevant chunk.
+   
+
+4. **Run the Streamlit app:**
     ```bash
     streamlit run RAG_1.py
     ```
