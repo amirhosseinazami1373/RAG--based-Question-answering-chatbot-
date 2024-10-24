@@ -110,5 +110,7 @@ Below is the flowchart showing the workflow of the RAG-based chatbot system:
 "Sherlock Holmes was examining the pathway and the surrounding area for clues and evidence related to the mystery at hand. He was also observing the behavior and actions of the police and other individuals involved in the case."
 ```
 
+## Demo
 
+🎥 **Watch the Video Demonstration:** [Sherlock Holmes RAG Chatbot Demo](https://github.com/amirhosseinazami1373/RAG--based-Question-answering-chatbot-/blob/main/Video%2010-24%20at%2013.09%20(3).gif)
 
